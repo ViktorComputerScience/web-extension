@@ -7,9 +7,14 @@ function sortTabsAlphabetically() {
         for (let i = 0; i < tabs.length; i++) {
             chrome.tabs.move(tabs[i].id, {index: i});
         }
+
     });
 }
 
-chrome.tabs.onCreated.addListener(() => {
-    sortTabsAlphabetically();
-})
+chrome.tabs.onUpdated.addListener((tabID, changeInfo, tab) => {
+
+    if (changeInfo.status === 'complete') {
+        sortTabsAlphabetically();
+    }
+
+});

@@ -2,10 +2,12 @@ function sortTabsAlphabetically() {
 
     chrome.tabs.query({currentWindow: true}, (tabs) => {
 
-        tabs.sort((a, b) => a.title.localeCompare(b.title));
+        let filteredTabs = tabs.filter((tab) => tab.title && tab.title !== 'New Tab');
 
-        for (let i = 0; i < tabs.length; i++) {
-            chrome.tabs.move(tabs[i].id, {index: i});
+        filteredTabs.sort((a, b) => a.title.localeCompare(b.title));
+
+        for (let i = 0; i < filteredTabs.length; i++) {
+            chrome.tabs.move(filteredTabs[i].id, {index: i});
         }
 
     });

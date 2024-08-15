@@ -1,3 +1,11 @@
+const MEDIUM_TAB_LIMIT = 5;
+const MAX_TAB_LIMIT = 10;
+
+// icons from https://www.iconfinder.com/
+const DEFAULT_ICON = 'green-icon-128.png';
+const MEDIUM_LIMIT_ICON = 'orange-icon-128.png';
+const MAX_LIMIT_ICON = 'red-icon-128.png';
+
 function sortTabsAlphabetically() {
 
     chrome.tabs.query({currentWindow: true}, (tabs) => {
@@ -13,10 +21,35 @@ function sortTabsAlphabetically() {
     });
 }
 
-chrome.tabs.onUpdated.addListener((tabID, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
     if (changeInfo.status === 'complete') {
         sortTabsAlphabetically();
     }
 
 });
+
+// idea from u/zombarista (https://www.reddit.com/r/webdev/comments/17ryy2f/build_a_browser_extension_if_you_want_to_try/)
+
+function updateIcon() {
+
+    chrome.tabs.query({currentWindow: true}, (tabs) => {
+
+        if (tabs.length > MAX_TAB_LIMIT) {
+
+            chrome.action.setIcon({path: MAX_LIMIT_ICON});
+
+        } else if (tabs.length > MEDIUM_TAB_LIMIT) {
+
+            chrome.action.setIcon({path: MEDIUM_LIMIT_ICON});
+
+        } else {
+
+            chrome.action.setIcon({path: DEFAULT_ICON});
+        }
+
+    });
+}
+
+chrome.tabs.onCreated.addListener(updateIcon);
+chrome.tabs.onRemoved.addListener(updateIcon);

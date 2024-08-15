@@ -15,5 +15,9 @@
     "host_permissions": [
         "http://*/*",
         "https://*/*"
-    ]
+    ],
+    "icons": {
+        "48": "extension-logo-48.png",
+        "128": "extension-logo-128.png"
+    }
 }

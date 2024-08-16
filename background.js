@@ -1,9 +1,9 @@
-const MEDIUM_TAB_LIMIT = 5;
+const WARNING_TAB_LIMIT = 5;
 const MAX_TAB_LIMIT = 10;
 
 // icons from https://www.iconfinder.com/
 const DEFAULT_ICON = 'green-icon-128.png';
-const MEDIUM_LIMIT_ICON = 'orange-icon-128.png';
+const WARNING_LIMIT_ICON = 'orange-icon-128.png';
 const MAX_LIMIT_ICON = 'red-icon-128.png';
 
 function sortTabsAlphabetically() {
@@ -39,9 +39,9 @@ function updateIcon() {
 
             chrome.action.setIcon({path: MAX_LIMIT_ICON});
 
-        } else if (tabs.length > MEDIUM_TAB_LIMIT) {
+        } else if (tabs.length > WARNING_TAB_LIMIT) {
 
-            chrome.action.setIcon({path: MEDIUM_LIMIT_ICON});
+            chrome.action.setIcon({path: WARNING_LIMIT_ICON});
 
         } else {
 

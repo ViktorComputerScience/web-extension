@@ -16,7 +16,7 @@ This Chrome extension was created using a combination of HTML, CSS, and JavaScri
 
 ## Demo
 
-Insert gif or link to demo
+![sort-demo](https://github.com/user-attachments/assets/b8483943-3d03-4886-87c1-d49c31775021)
 
 
 ## Lessons Learned

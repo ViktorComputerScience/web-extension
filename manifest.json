@@ -3,7 +3,8 @@
     "name": "web-extension",
     "version": "0.0.1",
     "permissions": [
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "action": {
         "default_popup": "popup.html",

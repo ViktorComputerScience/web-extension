@@ -6,7 +6,24 @@ const DEFAULT_ICON = 'green-icon-128.png';
 const WARNING_LIMIT_ICON = 'orange-icon-128.png';
 const MAX_LIMIT_ICON = 'red-icon-128.png';
 
+let isSortEnabled = false;
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+
+    if (message.action === 'enableSort') {
+        isSortEnabled = true; 
+
+    } else if (message.action === 'disableSort') {
+        isSortEnabled = false; 
+    }
+
+});
+
 function sortTabsAlphabetically() {
+
+    if (! isSortEnabled) {
+        return;
+    }
 
     chrome.tabs.query({currentWindow: true}, (tabs) => {
 

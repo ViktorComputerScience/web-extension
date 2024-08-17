@@ -27,7 +27,7 @@ Tab Count Indicator:
 
 ## Lessons Learned
 
-Building this Chrome extension was a great learning experience. I gained hands-on experience working in HTML, CSS, and JavaScript and dove into how Chrome's extension APIs work. One of the trickiest parts was figuring out how to use Chrome's storage to remember user preferences, and it took some trial and error to save the settings without causing unwanted transitions. 
+Building this Chrome extension was a great learning experience. I gained hands-on experience working in HTML, CSS, and JavaScript and dove into how Chrome's extension APIs work. One of the trickiest parts was figuring out how to use Chrome's storage to remember user preferences, like whether the tab sorting was enabled or not, and it took some trial and error to save the settings without causing unwanted transitions.
 
 
 ## Acknowledgments
